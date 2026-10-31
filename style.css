@@ -10,8 +10,21 @@
 body {
   margin: 0;
   font-family: "Open Sans", Arial, sans-serif;
-  background-color: var(--fundo);
+  background:
+    radial-gradient(ellipse at 75% 35%,
+      rgba(110, 60, 30, 0.55) 0%,
+      rgba(80, 42, 22, 0.35) 25%,
+      rgba(50, 28, 17, 0.15) 50%,
+      transparent 75%),
+    var(--fundo);
+  background-attachment: fixed;
   color: var(--texto);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex: 1;
 }
 
 a {
