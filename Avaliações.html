@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Avaliações - Chapão do Moreira</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="nav">
+        <a href="#inicio" class="logo">Chapão do Moreira</a>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="#cardapio">Cardápio</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#contato">contato</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="inicio">
+      <h1>Avaliações</h1>
+      <p>Conte como foi a sua parada no Chapão do Moreira.</p>
+
+      <section id="resumo">
+        <h2>Nota Geral</h2>
+        <h3>Nota dos clientes</h3>
+        <div id="media"></div>
+        <div id="barras"></div>
+        <div id="mediaEstrelas"></div>
+        <div id="total"></div>
+      </section>
+
+      <section id="Formulario">
+        <h2>Deixe sua avaliação</h2>
+        <div id="escolha">  
+          <button type="button">★</button>
+          <button type="button">★</button>
+          <button type="button">★</button>
+          <button type="button">★</button>
+          <button type="button">★</button>
+
+          <input id="nome" type="text" placeholder="Seu nome" />
+          <textarea id="comentario" placeholder="Seu comentário"></textarea>
+          <div id="msg"></div>
+             <button id="enviar" type="button">Enviar avaliação</button>
+          </div>
+     
+      </section>
+
+<section id="avaliacoes">
+        <h2>Todas as avaliações</h2>
+        <select id="ordem">
+          <option value="recentes">Mais recentes</option>
+          <option value="maior">Maior nota</option>
+          <option value="menor">Menor nota</option>
+        </select>
+        <div id="lista"></div>
+      </section>
+
+    </main>
+    <footer>
+      <span class="logo">Chapão do Moreira</span>
+      <p>
+        BR-277, 265 - Gonçalves Júnior, Irati - PR, 84500-000 · (42) 3446-2198 ·
+        todos os dias, das 6:00 às 2:00
+      </p>
+      <p class="copy">
+        © 2026 Chapão do Moreira. Todos os direitos reservados.
+      </p>
+    </footer>
+  </body>
+</html>
