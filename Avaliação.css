@@ -1,0 +1,66 @@
+main h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 48px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+main p {
+  margin: 0 0 8px;
+  color: #c9b8a8;
+}
+
+main h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+  margin: 0 0 4px;
+}
+
+main h3 {
+  margin: 0 0 16px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--destaque);
+}
+
+
+#escolha {
+  display: flex;
+  gap: 4px;
+}
+
+#escolha button {
+  background: none;
+  border: 0;
+  padding: 0 2px;
+  font-size: 36px;
+  line-height: 1;
+  color: #5a4a3c;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+#escolha button:hover {
+  transform: scale(1.15);
+  color: var(--destaque);
+}
+
+#enviar {
+  padding: 14px 24px;
+  border: none;
+  border-radius: 40px;
+  background: linear-gradient(180deg, #e8c27e, #b8863a);
+  color: #2b1a12;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+#enviar:hover {
+  filter: brightness(1.08);
+}
