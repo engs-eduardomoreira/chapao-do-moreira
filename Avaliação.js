@@ -2,12 +2,19 @@ let notaEscolhida = 0;
 let contador = 0;
 const avaliacoes = [];
 
+const caixaResumo = document.getElementById("resumo");
+const campoMedia = document.getElementById("media");
+const campoMediaEstrelas = document.getElementById("mediaEstrelas");
+const campoTotal = document.getElementById("total");
+const campoBarras = document.getElementById("barras");
+
 const escolha = document.getElementById("escolha");
 const estrelas = escolha.querySelectorAll("button");
 const campoNome = document.getElementById("nome");
 const campoComentario = document.getElementById("comentario");
 const msg = document.getElementById("msg");
 const botaoEnviar = document.getElementById("enviar");
+
 const seletorOrdem = document.getElementById("ordem");
 const lista = document.getElementById("lista");
 
@@ -25,7 +32,42 @@ function desenharEstrelas(nota) {
   return html;
 }
 
-function atualizarLista() {
+function atualizarResumo(animar) {
+  const total = avaliacoes.length;
+  let soma = 0;
+  const contagem = [0, 0, 0, 0, 0, 0];
+
+  avaliacoes.forEach(function (a) {
+    soma += a.nota;
+    contagem[a.nota]++;
+  });
+
+  const media = total ? soma / total : 0;
+  campoMedia.textContent = media.toFixed(1).replace(".", ",");
+  campoMediaEstrelas.innerHTML = desenharEstrelas(Math.round(media));
+  campoTotal.textContent = total + (total === 1 ? " avaliação" : " avaliações");
+
+  campoBarras.innerHTML = "";
+  for (let n = 5; n >= 1; n--) {
+    const porcentagem = total ? (contagem[n] / total) * 100 : 0;
+
+    const linha = document.createElement("div");
+    linha.className = "av-linha";
+    linha.innerHTML =
+      "<span>" + n + "★</span>" +
+      '<div class="av-trilho"><div class="av-preenchido" style="width:' + porcentagem + '%"></div></div>' +
+      '<span class="av-num">' + contagem[n] + "</span>";
+    campoBarras.appendChild(linha);
+  }
+
+  if (animar) {
+    caixaResumo.classList.remove("pulsar");
+    void caixaResumo.offsetWidth;
+    caixaResumo.classList.add("pulsar");
+  }
+}
+
+function atualizarLista(idNovo) {
   const modo = seletorOrdem.value;
   const copia = avaliacoes.slice();
 
@@ -42,10 +84,20 @@ function atualizarLista() {
 
   copia.forEach(function (a) {
     const item = document.createElement("div");
-    item.className = "av-item";
+    item.className = "av-item" + (a.ordem === idNovo ? " nova" : "");
+
+    const avatar = document.createElement("div");
+    avatar.className = "av-avatar";
+    avatar.textContent = a.nome.charAt(0).toUpperCase();
+
+    const conteudo = document.createElement("div");
 
     const nome = document.createElement("b");
     nome.textContent = a.nome;
+
+    const quando = document.createElement("span");
+    quando.className = "av-quando";
+    quando.textContent = a.data;
 
     const estrelasItem = document.createElement("div");
     estrelasItem.className = "av-estrelas";
@@ -54,7 +106,8 @@ function atualizarLista() {
     const texto = document.createElement("p");
     texto.textContent = a.texto;
 
-    item.append(nome, estrelasItem, texto);
+    conteudo.append(nome, quando, estrelasItem, texto);
+    item.append(avatar, conteudo);
     lista.appendChild(item);
   });
 }
@@ -82,8 +135,16 @@ botaoEnviar.onclick = function () {
   }
 
   contador++;
-  avaliacoes.push({ nome: nome || "Cliente", nota: notaEscolhida, texto: texto, ordem: contador });
-  atualizarLista();
+  avaliacoes.push({
+    nome: nome || "Cliente",
+    nota: notaEscolhida,
+    texto: texto,
+    data: new Date().toLocaleDateString("pt-BR"),
+    ordem: contador
+  });
+
+  atualizarLista(contador);
+  atualizarResumo(true);
 
   campoNome.value = "";
   campoComentario.value = "";
@@ -94,6 +155,9 @@ botaoEnviar.onclick = function () {
   msg.textContent = "Obrigado! Sua avaliação foi enviada.";
 };
 
-seletorOrdem.onchange = atualizarLista;
+seletorOrdem.onchange = function () {
+  atualizarLista();
+};
 
+atualizarResumo(false);
 atualizarLista();
