@@ -68,3 +68,13 @@ main h3 {
 #escolha button.ligada {
   color: var(--destaque);
 }
+
+#msg {
+  min-height: 18px;
+  font-size: 14px;
+  color: #ff8a7a;
+}
+
+#msg.ok {
+  color: #8fd19e;
+}
