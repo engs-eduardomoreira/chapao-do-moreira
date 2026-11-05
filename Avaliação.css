@@ -78,3 +78,17 @@ main h3 {
 #msg.ok {
   color: #8fd19e;
 }
+
+.av-item {
+  padding: 14px 0;
+  border-top: 1px solid #3a2a20;
+}
+
+.av-estrelas {
+  color: var(--destaque);
+  letter-spacing: 2px;
+}
+
+.apagada {
+  color: #5a4a3c;
+}
