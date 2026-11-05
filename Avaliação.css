@@ -68,3 +68,27 @@ main h3 {
 #escolha button.ligada {
   color: var(--destaque);
 }
+
+#msg {
+  min-height: 18px;
+  font-size: 14px;
+  color: #ff8a7a;
+}
+
+#msg.ok {
+  color: #8fd19e;
+}
+
+.av-item {
+  padding: 14px 0;
+  border-top: 1px solid #3a2a20;
+}
+
+.av-estrelas {
+  color: var(--destaque);
+  letter-spacing: 2px;
+}
+
+.apagada {
+  color: #5a4a3c;
+}
