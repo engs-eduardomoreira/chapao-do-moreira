@@ -1,0 +1,245 @@
+.topo-cardapio {
+  text-align: center;
+  padding: 56px 20px 28px;
+}
+
+.topo-cardapio h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 64px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin: 0;
+}
+
+.subtitulo {
+  margin: 10px 0 0;
+  font-size: 18px;
+  color: var(--destaque);
+}
+
+.subtitulo::after {
+  content: "";
+  display: block;
+  width: 90px;
+  height: 3px;
+  margin: 22px auto 0;
+  border-radius: 3px;
+  background: linear-gradient(90deg, transparent, var(--destaque), transparent);
+}
+
+.atalhos {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 14px 20px;
+  background-color: rgba(43, 26, 18, 0.92);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid #3a2a20;
+}
+
+.atalhos a {
+  padding: 8px 20px;
+  border: 1px solid var(--destaque);
+  border-radius: 40px;
+  font-size: 14px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.atalhos a:hover {
+  background-color: var(--destaque);
+  color: #2b1a12;
+}
+
+main {
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 36px 20px 72px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.duas-colunas {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.categoria {
+  background-color: rgba(17, 17, 17, 0.78);
+  border: 1px solid #3a2a20;
+  border-top: 3px solid var(--destaque);
+  border-radius: 18px;
+  padding: 30px;
+  box-sizing: border-box;
+  scroll-margin-top: 80px;
+}
+
+.categoria h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
+  margin: 0 0 6px;
+}
+
+.chamada {
+  margin: 0 0 22px;
+  color: #c9b8a8;
+}
+
+.opcoes {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+}
+
+.opcao {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 22px 12px;
+  background: linear-gradient(180deg, #241a14, #1a120d);
+  border: 1px solid #3a2a20;
+  border-radius: 14px;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.opcao:hover {
+  transform: translateY(-4px);
+  border-color: var(--destaque);
+}
+
+.opcao h3 {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+}
+
+.opcao-nome {
+  min-height: 38px;
+  margin-top: 4px;
+  font-size: 13px;
+  color: #c9b8a8;
+}
+
+.opcao-preco {
+  margin-top: 12px;
+  font-family: "Playfair Display", serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--destaque);
+}
+
+.itens {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+}
+
+.itens-duplos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 48px;
+}
+
+.item {
+  padding: 16px 0;
+  border-top: 1px dashed #3a2a20;
+}
+
+.item:first-child,
+.itens-duplos .item:nth-child(2) {
+  border-top: 0;
+}
+
+.item-topo {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.item-topo h3 {
+  flex: 1;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.item-topo h3::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px dotted #6b5646;
+}
+
+.preco {
+  color: var(--destaque);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.descricao {
+  margin: 5px 0 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #c9b8a8;
+}
+
+.adicionais {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.adicional {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 18px;
+  background-color: #1f120c;
+  border: 1px solid #3a2a20;
+  border-radius: 40px;
+}
+
+@media (max-width: 900px) {
+  .opcoes {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .duas-colunas,
+  .itens-duplos {
+    grid-template-columns: 1fr;
+  }
+
+  .itens-duplos .item:nth-child(2) {
+    border-top: 1px dashed #3a2a20;
+  }
+}
+
+@media (max-width: 800px) {
+  .topo-cardapio h1 {
+    font-size: 42px;
+  }
+
+  .categoria {
+    padding: 22px;
+  }
+
+  .atalhos {
+    position: static;
+  }
+}
